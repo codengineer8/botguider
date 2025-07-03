@@ -1,0 +1,2588 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Tools Showcase</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <style>
+    .nav-btn {
+      text-decoration: none;
+    }
+  </style>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="top-nav" id="navbar">
+          <div class="nav-container">
+            <div class="hamburger" onclick="toggleMenu()">☰</div>
+            <div class="nav-links" id="navLinks">
+              <button class="nav-btn" onclick="scrollToTop()">Home</button>
+              <div class="dropdown">
+                <button
+                  class="nav-btn"
+                  id="categoryBtn"
+                  onclick="toggleDropdown()"
+                >
+                  Category ▼
+                </button>
+                <div class="dropdown-content" id="categoryDropdown">
+                  <button class="dropdown-item" onclick="filterCards('all')">
+                    All
+                  </button>
+                  <button class="dropdown-item" onclick="filterCards('cat1')">
+                    General AI Assistant
+                  </button>
+                  <button class="dropdown-item" onclick="filterCards('cat2')">
+                    Writing & Content Creation
+                  </button>
+                  <button class="dropdown-item" onclick="filterCards('cat3')">
+                    Video Creation
+                  </button>
+                  <button class="dropdown-item" onclick="filterCards('cat4')">
+                    Image , Design & Generation
+                  </button>
+                  <button class="dropdown-item" onclick="filterCards('cat5')">
+                    presentation & Slides
+                  </button>
+                  <button class="dropdown-item" onclick="filterCards('cat6')">
+                    Code & Dev Tools
+                  </button>
+                  <button class="dropdown-item" onclick="filterCards('cat7')">
+                    Productivity & Automation
+                  </button>
+                  <button class="dropdown-item" onclick="filterCards('cat8')">
+                    Education & Learning
+                  </button>
+                  <button class="dropdown-item" onclick="filterCards('cat9')">
+                    Audio & Voice
+                  </button>
+                  <button class="dropdown-item" onclick="filterCards('cat10')">
+                    Marketing & SEO
+                  </button>
+
+                  <!-- Add more categories as needed -->
+                </div>
+              </div>
+              <a href="about.html" class="nav-btn">About</a>
+
+              <a href="contact.html" class="nav-btn">Contact</a>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <main>
+        <div class="mobile-menu" id="mobileMenu">
+          <button class="nav-btn">Home</button>
+          <button class="nav-btn">Category</button>
+          <button class="nav-btn">About</button>
+          <button class="nav-btn">Contact Us</button>
+          <input type="text" placeholder="Search tools..." />
+        </div>
+
+        <div class="overlay"></div>
+
+        <div class="container main-content">
+          <h1>Your BotGuider</h1>
+
+          <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search tools..." />
+          </div>
+
+          <!-- cards  -->
+
+          <div class="cards">
+            <!-- <div class="card cat1">
+        <div class="image-wrapper">
+          <img src="./icons/chatgpt_whitelogo.png" alt="Tool 2">
+        </div>
+        <div class="chatgpt tool-title">Tool 2</div>
+      
+      
+        <a href="https://chat.openai.com" target="_blank" class="side-button btn1">I</a>
+      
+        
+        <button class="side-button btn2" onclick="openToolPopup('tool1')">II</button>
+
+      
+        <div class="info">
+          <p class="desc">This is Tool 2 description shown on hover.</p>
+        </div>
+      </div> -->
+            <div id="toolPopup" class="popup" onclick="closeToolPopup(event)">
+              <div class="popup-content" onclick="event.stopPropagation()">
+                <h2 id="toolPopupTitle">Tool Title</h2>
+                <p id="toolPopupDesc">Tool description here</p>
+                <button id="toolCloseBtn">Close</button>
+              </div>
+            </div>
+
+            <div class="card cat10">
+              <div class="image-wrapper">
+                <img src="./icons/adcreative_logo.png" alt="AdCreative.ai" />
+              </div>
+              <div class="adcreative tool-title">AdCreative.ai</div>
+              <a
+                href="https://www.adcreative.ai/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/adcreative_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('adcreative')"
+              >
+                ℹ
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Generate high-converting ad creatives using AI.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat1 cat2">
+              <div class="image-wrapper">
+                <img src="./icons/aidungeon_logo.png" alt="AI Dungeon" />
+              </div>
+              <div class="aidungeon tool-title">AI Dungeon</div>
+              <a
+                href="https://play.aidungeon.io/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/aidungeon_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('aidungeon')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Interactive story-based game using AI narratives.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat4">
+              <div class="image-wrapper">
+                <img src="./icons/aipicasso_logo.png" alt="AI Picasso" />
+              </div>
+              <div class="aipicasso tool-title">AI Picasso</div>
+              <a
+                href="https://www.aipicasso.app/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/aipicasso_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('aipicasso')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">Convert sketches into AI-generated artwork.</p>
+              </div>
+            </div>
+
+            <div class="card cat7">
+              <div class="image-wrapper">
+                <img src="./icons/airtable_logo.png" alt="Airtable AI" />
+              </div>
+              <div class="airtable tool-title">Airtable AI</div>
+              <a
+                href="https://www.airtable.com/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/airtable_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('airtable')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Smart database tools enhanced with AI features.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat9">
+              <div class="image-wrapper">
+                <img src="./icons/aiva_logo.png" alt="Aiva" />
+              </div>
+              <div class="aiva tool-title">Aiva</div>
+              <a
+                href="https://www.aiva.ai/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/aiva_logo.png"
+              /></a>
+              <button class="side-button btn2" onclick="openToolPopup('aiva')">
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  AI music composition tool for creators and filmmakers.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat3">
+              <div class="image-wrapper">
+                <img src="./icons/animoto_logo.png" alt="Animoto" />
+              </div>
+              <div class="animoto tool-title">Animoto</div>
+              <a
+                href="https://animoto.com/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/animoto_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('animoto')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Create drag-and-drop marketing videos with AI assistance.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat2 cat10">
+              <div class="image-wrapper">
+                <img src="./icons/anyword_logo.png" alt="Anyword" />
+              </div>
+              <div class="anyword tool-title">Anyword</div>
+              <a
+                href="https://anyword.com/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/anyword_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('anyword')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Predictive AI copywriting tool for ads and sales.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat6">
+              <div class="image-wrapper">
+                <img src="./icons/askcodi_logo.png" alt="AskCodi" />
+              </div>
+              <div class="askcodi tool-title">AskCodi</div>
+              <a
+                href="https://www.askcodi.com/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/askcodi_logo.png" />i</a
+              >
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('askcodi')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Write code, SQL, and documentation using natural language.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat4">
+              <div class="image-wrapper">
+                <img src="./icons/autodraw_logo.png" alt="AutoDraw" />
+              </div>
+              <div class="autodraw tool-title">AutoDraw</div>
+              <a
+                href="https://www.autodraw.com/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/autodraw_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('autodraw')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Turn rough sketches into polished icons instantly.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat7">
+              <div class="image-wrapper">
+                <img src="./icons/bardeen_Logo.png" alt="Bardeen" />
+              </div>
+              <div class="bardeen tool-title">Bardeen</div>
+              <a
+                href="https://www.bardeen.ai/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/bardeen_Logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('bardeen')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Automate browser workflows with AI and shortcuts.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat6">
+              <div class="image-wrapper">
+                <img src="./icons/beautifycode_logo.png" alt="Beautify Code" />
+              </div>
+              <div class="beautifycode tool-title">Beautify Code</div>
+              <a
+                href="https://beautifytools.com/html-beautifier.php"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/beautifycode_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('beautifycode')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Format messy code into clean, readable structure.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat5">
+              <div class="image-wrapper">
+                <img src="./icons/beautifulai_logo.png" alt="Beautiful.ai" />
+              </div>
+              <div class="beautifulai tool-title">Beautiful.ai</div>
+              <a
+                href="https://www.beautiful.ai/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/beautifulai_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('beautifulai')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Design stunning presentations automatically with AI.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat6">
+              <div class="image-wrapper">
+                <img src="./icons/blackbox_logo.png" alt="Blackbox AI" />
+              </div>
+              <div class="blackboxai tool-title">Blackbox AI</div>
+              <a
+                href="https://www.useblackbox.io/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/blackbox_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('blackboxai')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  AI-powered coding assistant for code search, autocomplete, and
+                  debugging.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat4 cat5 cat10">
+              <div class="image-wrapper">
+                <img src="./icons/canva_logo.png" alt="Canva Magic Studio" />
+              </div>
+              <div class="canva tool-title">Canva Magic Studio</div>
+              <a
+                href="https://www.canva.com/magic-studio/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/canva_logo.png"
+              /></a>
+              <button class="side-button btn2" onclick="openToolPopup('canva')">
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  AI tools inside Canva for design, writing, and editing.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat1 cat2 cat6">
+              <div class="image-wrapper">
+                <img src="./icons/chatgpt_logo.png" alt="ChatGPT" />
+              </div>
+              <div class="chatgpt tool-title">ChatGPT</div>
+              <a
+                href="https://chat.openai.com/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/chatgpt_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('chatgpt')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Conversational AI assistant for writing, coding, and more.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat1">
+              <div class="image-wrapper">
+                <img src="./icons/claudeai_logo.png" alt="Claude (Anthropic)" />
+              </div>
+              <div class="claude tool-title">Claude</div>
+              <a
+                href="https://claude.ai/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/claudeai_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('claude')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Safe, conversational AI from Anthropic with long context.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat7">
+              <div class="image-wrapper">
+                <img src="./icons/clickup_logo.png" alt="ClickUp AI" />
+              </div>
+              <div class="clickup tool-title">ClickUp AI</div>
+              <a
+                href="https://clickup.com/features/ai"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/clickup_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('clickup')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  AI-powered productivity for docs, tasks, and projects.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat4">
+              <div class="image-wrapper">
+                <img src="./icons/cleanup_logo.png" alt="Cleanup.pictures" />
+              </div>
+              <div class="cleanup tool-title">Cleanup.pictures</div>
+              <a
+                href="https://cleanup.pictures/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/cleanup_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('cleanup')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Remove objects, people, and text from images effortlessly.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat3 cat8">
+              <div class="image-wrapper">
+                <img src="./icons/colossyan_logo.png" alt="Colossyan" />
+              </div>
+              <div class="colossyan tool-title">Colossyan</div>
+              <a
+                href="https://www.colossyan.com/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/colossyan_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('colossyan')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  AI-generated training and explainer videos with avatars.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat8">
+              <div class="image-wrapper">
+                <img src="./icons/consensus_logo.png" alt="Consensus" />
+              </div>
+              <div class="consensus tool-title">Consensus</div>
+              <a
+                href="https://consensus.app/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/consensus_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('consensus')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  AI that finds and summarizes peer-reviewed research papers.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat2 cat10">
+              <div class="image-wrapper">
+                <img src="./icons/copy_logo.png" alt="Copy.ai" />
+              </div>
+              <div class="copyai tool-title">Copy.ai</div>
+              <a
+                href="https://www.copy.ai/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/copy_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('copyai')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Generate social media posts, ads, and blog content fast.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat4">
+              <div class="image-wrapper">
+                <img src="./icons/craiyon_logo.png" alt="Craiyon" />
+              </div>
+              <div class="craiyon tool-title">Craiyon</div>
+              <a
+                href="https://www.craiyon.com/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/craiyon_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('craiyon')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Free AI image generator that creates fun and surreal images
+                  from text prompts.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat6">
+              <div class="image-wrapper">
+                <img src="./icons/cursor_logo.png" alt="Cursor" />
+              </div>
+              <div class="cursor tool-title">Cursor</div>
+              <a
+                href="https://www.cursor.so/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/cursor_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('cursor')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  AI-native code editor that understands your project context.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat4">
+              <div class="image-wrapper">
+                <img src="./icons/dalle3_logo.png" alt="DALL·E 3" />
+              </div>
+              <div class="dalle3 tool-title">DALL·E 3</div>
+              <a
+                href="https://openai.com/dall-e"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/dalle3_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('dalle3')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Generate detailed images from text prompts by OpenAI.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat4 cat10">
+              <div class="image-wrapper">
+                <img src="./icons/designify_logo.png" alt="Designify" />
+              </div>
+              <div class="designify tool-title">Designify</div>
+              <a
+                href="https://www.designify.com/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/designify_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('designify')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Automatically enhance product photos using AI.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat3 cat9">
+              <div class="image-wrapper">
+                <img src="./icons/descript_logo.png" alt="Descript" />
+              </div>
+              <div class="descript tool-title">Descript</div>
+              <a
+                href="https://www.descript.com/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/descript_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('descript')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Edit video & audio like a document with transcripts.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat3 cat9">
+              <div class="image-wrapper">
+                <img src="./icons/dubverse_logo.png" alt="Dubverse" />
+              </div>
+              <div class="dubverse tool-title">Dubverse</div>
+              <a
+                href="https://www.dubverse.ai/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/dubverse_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('dubverse')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Translate and dub videos into multiple languages using AI.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat8">
+              <div class="image-wrapper">
+                <img src="./icons/elicit_logo.png" alt="Elicit" />
+              </div>
+              <div class="elicit tool-title">Elicit</div>
+              <a
+                href="https://elicit.org/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/elicit_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('elicit')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  AI research assistant for literature reviews and synthesis.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat9">
+              <div class="image-wrapper">
+                <img src="./icons/elevenlabs_logo.png" alt="ElevenLabs" />
+              </div>
+              <div class="elevenlabs tool-title">ElevenLabs</div>
+              <a
+                href="https://www.elevenlabs.io/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/elevenlabs_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('elevenlabs')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Generate lifelike voiceovers and clone voices with AI.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat7">
+              <div class="image-wrapper">
+                <img src="./icons/ellie_logo.png" alt="Ellie AI" />
+              </div>
+              <div class="ellieai tool-title">Ellie AI</div>
+              <a
+                href="https://ellieai.com/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/ellie_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('ellieai')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Automatically write context-aware email replies with AI.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat8">
+              <div class="image-wrapper">
+                <img
+                  src="./icons/explainlikeimfive_logo.png"
+                  alt="Explain Like I'm Five AI"
+                />
+              </div>
+              <div class="explainlikeimfive tool-title">
+                Explain Like I'm Five AI
+              </div>
+              <a
+                href="https://explaineverything.com/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/explainlikeimfive_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('explainlikeimfive')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Simplifies complex topics into easy-to-understand
+                  explanations.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat8">
+              <div class="image-wrapper">
+                <img src="./icons/explainpaper_logo.png" alt="Explainpaper" />
+              </div>
+              <div class="explainpaper tool-title">Explainpaper</div>
+              <a
+                href="https://www.explainpaper.com/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/explainpaper_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('explainpaper')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Explain academic papers in simple language using AI.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat10">
+              <div class="image-wrapper">
+                <img src="./icons/flick_logo.png" alt="Flick" />
+              </div>
+              <div class="flick tool-title">Flick</div>
+              <a
+                href="https://www.flick.social/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/flick_logo.png"
+              /></a>
+              <button class="side-button btn2" onclick="openToolPopup('flick')">
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Generate social media captions and schedule posts with AI.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat7 cat9">
+              <div class="image-wrapper">
+                <img src="./icons/firefliesai_logo.png" alt="Fireflies AI" />
+              </div>
+              <div class="firefliesai tool-title">Fireflies AI</div>
+              <a
+                href="https://fireflies.ai/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/firefliesai_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('firefliesai')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Automatically transcribe meetings and take smart notes.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat2 cat5">
+              <div class="image-wrapper">
+                <img src="./icons/gamma_logo.png" alt="Gamma.app" />
+              </div>
+              <div class="gamma tool-title">Gamma.app</div>
+              <a
+                href="https://gamma.app/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/gamma_logo.png"
+              /></a>
+              <button class="side-button btn2" onclick="openToolPopup('gamma')">
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Create stunning decks, docs, and webpages with AI help.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat6">
+              <div class="image-wrapper">
+                <img
+                  src="./icons/githubcopilot_logo.png"
+                  alt="GitHub Copilot"
+                />
+              </div>
+              <div class="githubcopilot tool-title">GitHub Copilot</div>
+              <a
+                href="https://github.com/features/copilot"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/githubcopilot_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('githubcopilot')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  AI pair programmer that helps write and complete code.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat1">
+              <div class="image-wrapper">
+                <img src="./icons/gemini_logo.gif" alt="Google Gemini" />
+              </div>
+              <div class="google_gemini tool-title">Google Gemini</div>
+              <a
+                href="https://gemini.google.com/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/gemini_logo.gif"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('google_gemini')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Google's powerful conversational AI to rival ChatGPT.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat2">
+              <div class="image-wrapper">
+                <img src="./icons/grammarly_logo.png" alt="GrammarlyGO" />
+              </div>
+              <div class="grammarlygo tool-title">GrammarlyGO</div>
+              <a
+                href="https://www.grammarly.com/grammarlygo"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/grammarly_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('grammarlygo')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Smart AI-powered writing and editing for all content types.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat10">
+              <div class="image-wrapper">
+                <img src="./icons/growthbar_logo.png" alt="GrowthBar" />
+              </div>
+              <div class="growthbar tool-title">GrowthBar</div>
+              <a
+                href="https://www.growthbarseo.com/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/growthbar_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('growthbar')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  AI-powered SEO content writing tool for fast ranking blogs.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat3">
+              <div class="image-wrapper">
+                <img src="./icons/heygen_logo.webp" alt="HeyGen" />
+              </div>
+              <div class="heygen tool-title">HeyGen</div>
+              <a
+                href="https://www.heygen.com/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/heygen_logo.webp"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('heygen')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Create presenter-style videos using realistic AI avatars.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat1">
+              <div class="image-wrapper">
+                <img src="./icons/humata_logo.png" alt="Humata.ai" />
+              </div>
+              <div class="humataai tool-title">Humata.ai</div>
+              <a
+                href="https://www.humata.ai/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/humata_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('humataai')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Upload documents and ask questions — get instant answers from
+                  PDFs using AI.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat2 cat7">
+              <div class="image-wrapper">
+                <img src="./icons/hyperwrite_logo.png" alt="HyperWrite" />
+              </div>
+              <div class="hyperwrite tool-title">HyperWrite</div>
+              <a
+                href="https://www.hyperwriteai.com/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/hyperwrite_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('hyperwrite')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  AI assistant for writing emails, documents, and automation.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat2 cat10">
+              <div class="image-wrapper">
+                <img src="./icons/inkeditor_logo.png" alt="INK Editor" />
+              </div>
+              <div class="inkeditor tool-title">INK Editor</div>
+              <a
+                href="https://inkforall.com/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/inkeditor_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('inkeditor')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  SEO-optimized writing tool with AI co-writer and ranking help.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat2 cat10">
+              <div class="image-wrapper">
+                <img src="./icons/jasper_logo.png" alt="Jasper" />
+              </div>
+              <div class="jasper tool-title">Jasper</div>
+              <a
+                href="https://www.jasper.ai/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/jasper_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('jasper')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Popular all-in-one AI writing platform for marketing teams.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat3">
+              <div class="image-wrapper">
+                <img src="./icons/kaiber_logo.png" alt="Kaiber" />
+              </div>
+              <div class="kaiber tool-title">Kaiber</div>
+              <a
+                href="https://www.kaiber.ai/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/kaiber_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('kaiber')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Create AI-generated music videos and style-driven visuals.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat8">
+              <div class="image-wrapper">
+                <img src="./icons/khanmigo_logo.png" alt="Khanmigo" />
+              </div>
+              <div class="khanmigo tool-title">Khanmigo</div>
+              <a
+                href="https://www.khanacademy.org/khan-labs"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/khanmigo_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('khanmigo')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  AI tutor assistant developed by Khan Academy.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat6">
+              <div class="image-wrapper">
+                <img src="./icons/kite_logo.png" alt="Kite" />
+              </div>
+              <div class="kite tool-title">Kite</div>
+              <a
+                href="https://www.kite.com/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/kite_logo.png"
+              /></a>
+              <button class="side-button btn2" onclick="openToolPopup('kite')">
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  AI coding assistant for autocompleting code in real-time.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat4">
+              <div class="image-wrapper">
+                <img src="./icons/krea_logo.png" alt="Krea AI" />
+              </div>
+              <div class="kreaai tool-title">Krea AI</div>
+              <a
+                href="https://www.krea.ai/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/krea_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('kreaai')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Real-time AI image generation and fine-tuning for creators and
+                  designers.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat1">
+              <div class="image-wrapper">
+                <img src="./icons/lamini_logo.png" alt="Lamini" />
+              </div>
+              <div class="lamini tool-title">Lamini</div>
+              <a
+                href="https://www.lamini.ai/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('lamini')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Private, secure LLM platform for building fast and
+                  customizable AI assistants.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat4">
+              <div class="image-wrapper">
+                <img src="./icons/leonardo_logo.png" alt="Leonardo AI" />
+              </div>
+              <div class="leonardo tool-title">Leonardo AI</div>
+              <a
+                href="https://leonardo.ai/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/leonardo_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('leonardo')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Create game assets and concept art using AI image tools.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat2">
+              <div class="image-wrapper">
+                <img src="./icons/lexpage_logo.png" alt="Lex.page" />
+              </div>
+              <div class="lexpage tool-title">Lex.page</div>
+              <a
+                href="https://lex.page/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/lexpage_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('lexpage')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Distraction-free AI writing assistant for bloggers, writers,
+                  and content creators.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat4 cat10">
+              <div class="image-wrapper">
+                <img src="./icons/looka_logo.png" alt="Looka" />
+              </div>
+              <div class="looka tool-title">Looka</div>
+              <a
+                href="https://looka.com/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/looka_logo.png"
+              /></a>
+              <button class="side-button btn2" onclick="openToolPopup('looka')">
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Design professional logos and brand kits using AI.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat9">
+              <div class="image-wrapper">
+                <img src="./icons/lovoai_logo.png" alt="Lovo.ai" />
+              </div>
+              <div class="lovoai tool-title">Lovo.ai</div>
+              <a
+                href="https://www.lovo.ai/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/lovoai_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('lovoai')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Create high-quality voiceovers with human-like emotion.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat2 cat3">
+              <div class="image-wrapper">
+                <img src="./icons/Lumen5_logo.webp" alt="Lumen5" />
+              </div>
+              <div class="lumen5 tool-title">Lumen5</div>
+              <a
+                href="https://lumen5.com/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/Lumen5_logo.webp"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('lumen5')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Convert blog posts into engaging videos using AI.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat7">
+              <div class="image-wrapper">
+                <img src="./icons/magical_logo.png" alt="Magical" />
+              </div>
+              <div class="magical tool-title">Magical</div>
+              <a
+                href="https://www.getmagical.com/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/magical_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('magical')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  AI text expander and productivity assistant for workflows.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat10">
+              <div class="image-wrapper">
+                <img src="./icons/marketmuse_logo.png" alt="MarketMuse" />
+              </div>
+              <div class="marketmuse tool-title">MarketMuse</div>
+              <a
+                href="https://www.marketmuse.com/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/marketmuse_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('marketmuse')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Plan and optimize content strategies using AI insights.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat1 cat7">
+              <div class="image-wrapper">
+                <img src="./icons/merlin_logo.png" alt="Merlin" />
+              </div>
+              <div class="merlin tool-title">Merlin</div>
+              <a
+                href="https://www.getmerlin.in/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/merlin_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('merlin')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  AI assistant for browsing, summarizing, and replying online.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat4">
+              <div class="image-wrapper">
+                <img src="./icons/midjourney_logo.png" alt="Midjourney" />
+              </div>
+              <div class="midjourney tool-title">Midjourney</div>
+              <a
+                href="https://www.midjourney.com/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/midjourney_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('midjourney')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Create breathtaking images via AI prompts on Discord.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat7">
+              <div class="image-wrapper">
+                <img src="./icons/motion_logo.png" alt="Motion" />
+              </div>
+              <div class="motion tool-title">Motion</div>
+              <a
+                href="https://www.usemotion.com/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/motion_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('motion')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Smart AI calendar that plans your day automatically.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat7">
+              <div class="image-wrapper">
+                <img src="./icons/moshiqa_logo.png" alt="Moshiqa" />
+              </div>
+              <div class="moshiqa tool-title">Moshiqa</div>
+              <a
+                href="https://moshiqa.com/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/moshiqa_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('moshiqa')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Luxury pet fashion brand using AI styling for pets.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat9">
+              <div class="image-wrapper">
+                <img src="./icons/murf_logo.png" alt="Murf AI" />
+              </div>
+              <div class="murfai tool-title">Murf AI</div>
+              <a
+                href="https://murf.ai/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/murf_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('murfai')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Studio-quality voiceovers and audio narration with AI.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat4 cat9">
+              <div class="image-wrapper">
+                <img src="./icons/neurallove_logo.png" alt="Neural.love" />
+              </div>
+              <div class="neurallove tool-title">Neural.love</div>
+              <a
+                href="https://neural.love/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/neurallove_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('neurallove')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  AI suite for image upscaling, text-to-image, voice cloning,
+                  and video enhancement.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat10">
+              <div class="image-wrapper">
+                <img src="./icons/neuron_logo.png" alt="NeuronWriter" />
+              </div>
+              <div class="neuronwriter tool-title">NeuronWriter</div>
+              <a
+                href="https://neuronwriter.com/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/neuron_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('neuronwriter')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Write and optimize SEO blog content with SERP data.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat9">
+              <div class="image-wrapper">
+                <img
+                  src="./icons/nomorecopyright_logo.webp"
+                  alt="NoMoreCopyright"
+                />
+              </div>
+              <div class="nomorecopyright tool-title">NoMoreCopyright</div>
+              <a
+                href="https://www.nomorecopyright.com/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/nomorecopyright_logo.webp"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('nomorecopyright')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  AI-generated royalty-free music tracks for creators,
+                  streamers, and video editors.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat2 cat7">
+              <div class="image-wrapper">
+                <img src="./icons/notion_logo.png" alt="Notion AI" />
+              </div>
+              <div class="notionai tool-title">Notion AI</div>
+              <a
+                href="https://www.notion.so/product/ai"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/notion_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('notionai')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Built-in AI assistant for Notion to write, brainstorm, and
+                  plan.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat10">
+              <div class="image-wrapper">
+                <img src="./icons/ocoya_logo.png" alt="Ocoya" />
+              </div>
+              <div class="ocoya tool-title">Ocoya</div>
+              <a
+                href="https://www.ocoya.com/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/ocoya_logo.png"
+              /></a>
+              <button class="side-button btn2" onclick="openToolPopup('ocoya')">
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  All-in-one platform for AI social content + scheduling.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat4">
+              <div class="image-wrapper">
+                <img src="./icons/paintbytext_logo.webp" alt="Paint by Text" />
+              </div>
+              <div class="paintbytext tool-title">Paint by Text</div>
+              <a
+                href="https://paintbytext.media.mit.edu/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/paintbytext_logo.webp"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('paintbytext')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Modify specific parts of images just by describing them.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat1 cat8">
+              <div class="image-wrapper">
+                <img src="./icons/perplexity_logo.png" alt="Perplexity AI" />
+              </div>
+              <div class="perplexityai tool-title">Perplexity AI</div>
+              <a
+                href="https://www.perplexity.ai/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/perplexity_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('perplexityai')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  AI search engine that answers questions with citations.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat6">
+              <div class="image-wrapper">
+                <img src="./icons/phind_logo.png" alt="Phind" />
+              </div>
+              <div class="phind tool-title">Phind</div>
+              <a
+                href="https://www.phind.com/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/phind_logo.png"
+              /></a>
+              <button class="side-button btn2" onclick="openToolPopup('phind')">
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  AI search assistant designed specifically for developers.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat3">
+              <div class="image-wrapper">
+                <img src="./icons/pictory_logo.png" alt="Pictory" />
+              </div>
+              <div class="pictory tool-title">Pictory</div>
+              <a
+                href="https://pictory.ai/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/pictory_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('pictory')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Turn blog posts or scripts into engaging videos with AI
+                  voiceovers and visuals.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat3">
+              <div class="image-wrapper">
+                <img src="./icons/pika_logo.png" alt="Pika" />
+              </div>
+              <div class="pika tool-title">Pika</div>
+              <a
+                href="https://pika.art/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/pika_logo.png"
+              /></a>
+              <button class="side-button btn2" onclick="openToolPopup('pika')">
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Generate short AI videos from text descriptions.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat5">
+              <div class="image-wrapper">
+                <img src="./icons/pitch_logo.png" alt="Pitch" />
+              </div>
+              <div class="pitch tool-title">Pitch</div>
+              <a
+                href="https://pitch.com/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/pitch_logo.png"
+              /></a>
+              <button class="side-button btn2" onclick="openToolPopup('pitch')">
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Create modern, collaborative, AI-assisted presentations.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat9">
+              <div class="image-wrapper">
+                <img src="./icons/play.ht_logo.png" alt="Play.ht" />
+              </div>
+              <div class="playht tool-title">Play.ht</div>
+              <a
+                href="https://play.ht/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/play.ht_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('playht')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Realistic AI voice generator for text-to-speech conversion.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat4">
+              <div class="image-wrapper">
+                <img src="./icons/playground_logo.png" alt="Playground AI" />
+              </div>
+              <div class="playgroundai tool-title">Playground AI</div>
+              <a
+                href="https://playgroundai.com/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/playground_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('playgroundai')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Free AI-powered art generator for creative images.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat10">
+              <div class="image-wrapper">
+                <img src="./icons/postwise_logo.png" alt="Postwise" />
+              </div>
+              <div class="postwise tool-title">Postwise</div>
+              <a
+                href="https://www.postwise.ai/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/postwise_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('postwise')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  AI writer for growing on Twitter/X through automation.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat10">
+              <div class="image-wrapper">
+                <img src="./icons/predisai_logo.png" alt="Predis.ai" />
+              </div>
+              <div class="predisai tool-title">Predis.ai</div>
+              <a
+                href="https://predis.ai/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/predisai_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('predisai')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Create and schedule social media content with AI visuals.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat6 cat7">
+              <div class="image-wrapper">
+                <img src="./icons/prompthero_logo.png" alt="PromptHero" />
+              </div>
+              <div class="prompthero tool-title">PromptHero</div>
+              <a
+                href="https://prompthero.com/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/prompthero_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('prompthero')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Search for and discover the best AI art prompts.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat2">
+              <div class="image-wrapper">
+                <img src="./icons/quillbot_logo.png" alt="Quillbot" />
+              </div>
+              <div class="quillbot tool-title">Quillbot</div>
+              <a
+                href="https://quillbot.com/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/quillbot_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('quillbot')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Paraphrasing, grammar checking, and summarization tool.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat4">
+              <div class="image-wrapper">
+                <img src="./icons/remini_logo.png" alt="Remini" />
+              </div>
+              <div class="remini tool-title">Remini</div>
+              <a
+                href="https://www.remini.ai/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/remini_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('remini')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  AI photo enhancer that restores low-quality images.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat4">
+              <div class="image-wrapper">
+                <img src="./icons/removebg_logo.png" alt="Remove.bg" />
+              </div>
+              <div class="removebg tool-title">Remove.bg</div>
+              <a
+                href="https://www.remove.bg/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/removebg_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('removebg')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">Instantly remove image backgrounds using AI.</p>
+              </div>
+            </div>
+
+            <div class="card cat6">
+              <div class="image-wrapper">
+                <img
+                  src="./icons/replitghostwriter_logo.png"
+                  alt="Replit Ghostwriter"
+                />
+              </div>
+              <div class="replitghostwriter tool-title">Replit Ghostwriter</div>
+              <a
+                href="https://replit.com/site/ghostwriter"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/replitghostwriter_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('replitghostwriter')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  AI pair programming inside the Replit IDE environment.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat9">
+              <div class="image-wrapper">
+                <img src="./icons/resembleai_logo.png" alt="Resemble.ai" />
+              </div>
+              <div class="resembleai tool-title">Resemble.ai</div>
+              <a
+                href="https://www.resemble.ai/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/resembleai_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('resembleai')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Voice cloning and real-time AI speech generation.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat3 cat4">
+              <div class="image-wrapper">
+                <img src="./icons/runwayml_logo.png" alt="Runway ML" />
+              </div>
+              <div class="runwayml tool-title">Runway ML</div>
+              <a
+                href="https://runwayml.com/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/runwayml_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('runwayml')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  AI video editing and creative media generation tools.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat2 cat10">
+              <div class="image-wrapper">
+                <img src="./icons/rytr_logo.png" alt="Rytr" />
+              </div>
+              <div class="rytr tool-title">Rytr</div>
+              <a
+                href="https://rytr.me/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/rytr_logo.png"
+              /></a>
+              <button class="side-button btn2" onclick="openToolPopup('rytr')">
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Fast AI writing assistant for blogs, ads, and emails.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat8">
+              <div class="image-wrapper">
+                <img src="./icons/scispace_logo.png" alt="SciSpace" />
+              </div>
+              <div class="scispace tool-title">SciSpace</div>
+              <a
+                href="https://typeset.io/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/scispace_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('scispace')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Read and explain scientific papers using AI instantly.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat5">
+              <div class="image-wrapper">
+                <img src="./icons/slidesai_logo.png" alt="SlidesAI" />
+              </div>
+              <div class="slidesai tool-title">SlidesAI</div>
+              <a
+                href="https://www.slidesai.io/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/slidesai_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('slidesai')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Turn any text into professional slides in seconds.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat5 cat8">
+              <div class="image-wrapper">
+                <img
+                  src="./icons/slidescarnival_logo.png"
+                  alt="SlidesCarnival AI"
+                />
+              </div>
+              <div class="slidescarnival tool-title">SlidesCarnival AI</div>
+              <a
+                href="https://www.slidescarnival.com/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/slidescarnival_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('slidescarnival')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  AI-enhanced templates for beautiful slide presentations.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat8">
+              <div class="image-wrapper">
+                <img src="./icons/socratic_logo.webp" alt="Socraic (Google)" />
+              </div>
+              <div class="socraic tool-title">Socratic (Google)</div>
+              <a
+                href="https://socratic.org/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/socratic_logo.webp"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('socraic')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  AI homework help for students by Google’s Socratic app.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat9">
+              <div class="image-wrapper">
+                <img src="./icons/soundraw_logo.png" alt="Soundraw" />
+              </div>
+              <div class="soundraw tool-title">Soundraw</div>
+              <a
+                href="https://soundraw.io/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/soundraw_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('soundraw')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Royalty-free AI-generated music for your videos or games.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat9">
+              <div class="image-wrapper">
+                <img src="./icons/speechify_logo.png" alt="Speechify" />
+              </div>
+              <div class="speechify tool-title">Speechify</div>
+              <a
+                href="https://speechify.com/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/speechify_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('speechify')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Text-to-speech tool that reads documents aloud naturally.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat1">
+              <div class="image-wrapper">
+                <img src="./icons/statmuse_logo.png" alt="StatMuse" />
+              </div>
+              <div class="statmuse tool-title">StatMuse</div>
+              <a
+                href="https://www.statmuse.com/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/statmuse_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('statmuse')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Ask sports questions and get instant stat-based answers.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat2">
+              <div class="image-wrapper">
+                <img src="./icons/sudowrite_logo.png" alt="Sudowrite" />
+              </div>
+              <div class="sudowrite tool-title">Sudowrite</div>
+              <a
+                href="https://www.sudowrite.com/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/sudowrite_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('sudowrite')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Creative writing assistant built for fiction authors.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat7">
+              <div class="image-wrapper">
+                <img src="./icons/superhumanai_logo.png" alt="Superhuman AI" />
+              </div>
+              <div class="superhumanai tool-title">Superhuman AI</div>
+              <a
+                href="https://superhuman.com/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/superhumanai_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('superhumanai')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  AI-enhanced email client with productivity features.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat10">
+              <div class="image-wrapper">
+                <img src="./icons/surferseo_logo.png" alt="Surfer SEO" />
+              </div>
+              <div class="surferseo tool-title">Surfer SEO</div>
+              <a
+                href="https://surferseo.com/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/surferseo_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('surferseo')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Content scoring and SEO optimization with real-time AI
+                  insights.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat6">
+              <div class="image-wrapper">
+                <img src="./icons/tabnine_logo.png" alt="Tabnine" />
+              </div>
+              <div class="tabnine tool-title">Tabnine</div>
+              <a
+                href="https://www.tabnine.com/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/tabnine_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('tabnine')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  AI-powered autocomplete for writing code faster.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat6">
+              <div class="image-wrapper">
+                <img src="./icons/taskade_logo.png" alt="Taskade" />
+              </div>
+              <div class="taskade tool-title">Taskade</div>
+              <a
+                href="https://www.taskade.com/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/taskade_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('taskade')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Collaborative AI-powered task manager and mindmap tool.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat2">
+              <div class="image-wrapper">
+                <img src="./icons/textcortex_logo.png" alt="TextCortex" />
+              </div>
+              <div class="textcortex tool-title">TextCortex</div>
+              <a
+                href="https://textcortex.com/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/textcortex_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('textcortex')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Write and translate content in 20+ languages with AI.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat7">
+              <div class="image-wrapper">
+                <img src="./icons/trello_logo.png" alt="Trello + Butler AI" />
+              </div>
+              <div class="trello tool-title">Trello + Butler AI</div>
+              <a
+                href="https://trello.com/butler"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/trello_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('trello')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Automate Trello boards using AI rules and workflows.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat6">
+              <div class="image-wrapper">
+                <img src="./icons/uperfect_logo.png" alt="Uperfect" />
+              </div>
+              <div class="uperfect tool-title">Uperfect</div>
+              <a
+                href="https://www.uperfectmonitor.com/"
+                target="_blank"
+                class="side-button btn1"
+                ><img src="./icons/uperfect_logo.png"
+              /></a>
+              <button
+                class="side-button btn2"
+                onclick="openToolPopup('uperfect')"
+              >
+                i
+              </button>
+              <div class="info">
+                <p class="desc">
+                  Enhance display with AI hardware-software optimization.
+                </p>
+              </div>
+            </div>
+
+            <div class="card cat7">
+  <div class="image-wrapper">
+    <img src="./icons/zapier_logo.png" alt="Zapier AI">
+  </div>
+  <div class="zapierai tool-title">Zapier AI</div>
+  <a href="https://zapier.com/blog/ai/" target="_blank" class="side-button btn1"><img src="./icons/zapier_logo.png"></a>
+  <button class="side-button btn2" onclick="openToolPopup('zapierai')">II</button>
+  <div class="info">
+    <p class="desc">Use natural language to build automated workflows across apps with AI.</p>
+  </div>
+</div>
+
+
+        <!-- Popups -->
+        <div
+          id="aboutPopup"
+          class="popup"
+          onclick="closePopupOutside(event, 'about')"
+        >
+          <div class="popup-content" onclick="event.stopPropagation()">
+            <h2>About Us</h2>
+            <p>
+              This is the About section. We showcase AI tools that can enhance
+              productivity and creativity.
+            </p>
+            <button onclick="closePopup('about')">Close</button>
+          </div>
+        </div>
+
+        <!-- CONTACT POPUP -->
+        <div
+          id="contactPopup"
+          class="popup"
+          onclick="closePopupOutside(event, 'contact')"
+        >
+          <div class="popup-content" onclick="event.stopPropagation()">
+            <h2>Contact Us</h2>
+            <p>Email us at support@example.com or call 123-456-7890</p>
+            <button onclick="closePopup('contact')">Close</button>
+          </div>
+        </div>
+
+        <div
+          id="toolPopup"
+          class="popup"
+          onclick="closePopupOutside(event, 'tool')"
+        >
+          <div class="popup-content" onclick="event.stopPropagation()">
+            <h2 id="toolPopupTitle">Tool Title</h2>
+            <p id="toolPopupDesc">Detailed description goes here.</p>
+            <button onclick="closePopup('tool')">Close</button>
+          </div>
+        </div>
+      </main>
+
+      <!-- <footer class="footer">
+        <p>&copy; 2025 YourWebsiteName. All rights reserved.</p>
+        <p>
+          <a href="about.html" style="color: #00f9ff; margin: 0 10px">About</a>
+          |
+          <a href="contact.html" style="color: #00f9ff; margin: 0 10px"
+            >Contact</a
+          >
+          |
+          <a href="privacy.html" style="color: #00f9ff; margin: 0 10px"
+            >Privacy Policy</a
+          >
+          |
+          <a href="terms.html" style="color: #00f9ff; margin: 0 10px"
+            >Terms & Conditions</a
+          >
+        </p>
+      </footer> -->
+
+      <footer class="footer">
+        <div class="footer-content">
+          <p>&copy; 2025 BotGuider. All rights reserved.</p>
+          <div class="footer-links">
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="terms.html">Terms</a>
+          </div>
+          <div class="footer-social">
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="./index.js"></script>
+  </body>
+</html>
